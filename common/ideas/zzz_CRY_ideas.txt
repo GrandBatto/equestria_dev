@@ -129,7 +129,10 @@ ideas = {
 			traits = { army_chief_defensive_2 }
 			available = {
 				has_government = democratic
-				hidden_trigger = { has_unit_leader = 1043 }
+				custom_trigger_tooltip = {
+					tooltip = HAS_UNIT_LEADER_SHINING_ARMOR
+					hidden_trigger = { has_unit_leader = 1043 }
+				}
 			}
 			ai_will_do = {
 				factor = 1
@@ -141,7 +144,10 @@ ideas = {
 				original_tag = CRY
 			}
 			available = {
-				hidden_trigger = { has_unit_leader = 199 }
+				custom_trigger_tooltip = {
+					tooltip = HAS_UNIT_LEADER_REESE
+					hidden_trigger = { has_unit_leader = 199 }
+				}
 			}
 			traits = { army_logistics_2 }
 			available = {
@@ -189,7 +195,10 @@ ideas = {
 				original_tag = CRY
 			}
 			available = {
-				hidden_trigger = { has_unit_leader = 200 }
+				custom_trigger_tooltip = {
+					tooltip = HAS_UNIT_LEADER_FLASH_SENTRY
+					hidden_trigger = { has_unit_leader = 200 }
+				}
 			}
 
 			traits = { army_infantry_1 }
@@ -204,7 +213,10 @@ ideas = {
 				original_tag = CRY
 			}
 			available = {
-				hidden_trigger = { has_unit_leader = 198 }
+				custom_trigger_tooltip = {
+					tooltip = HAS_UNIT_LEADER_DAMIYAN
+					hidden_trigger = { has_unit_leader = 198 }
+				}
 			}
 			traits = { defence_theorist }
 
@@ -218,7 +230,10 @@ ideas = {
 				original_tag = CRY
 			}
 			available = {
-				hidden_trigger = { has_unit_leader = 197 }
+				custom_trigger_tooltip = {
+					tooltip = HAS_UNIT_LEADER_CLOUDY
+					hidden_trigger = { has_unit_leader = 197 }
+				}
 			}
 
 			traits = { army_regrouping_1 }
@@ -1265,7 +1280,7 @@ ideas = {
 			}
 			allowed_civil_war = {
 				always = no
-			}
+			}			
 			removal_cost = -1
 			research_bonus = {
 				race_tech = 0.05
@@ -1321,7 +1336,10 @@ ideas = {
 				always = yes
 			}
 			allowed_civil_war = {
-				always = no
+				has_government = democratic
+			}
+			available = {
+				has_government = democratic
 			}
 			removal_cost = -1
 
@@ -1337,7 +1355,10 @@ ideas = {
 				always = yes
 			}
 			allowed_civil_war = {
-				always = no
+				has_government = communism
+			}
+			available = {
+				has_government = communism
 			}
 			removal_cost = -1
 
@@ -1354,7 +1375,13 @@ ideas = {
 				always = yes
 			}
 			allowed_civil_war = {
-				always = no
+				has_government = communism
+			}
+			available = {
+				has_government = communism
+				country_exists = STG
+				STG = { has_government = communism }
+				NOT = { has_war_with = STG }
 			}
 			removal_cost = -1
 
@@ -1372,7 +1399,10 @@ ideas = {
 				always = yes
 			}
 			allowed_civil_war = {
-				always = no
+				has_government = communism
+			}
+			available = {
+				has_government = communism
 			}
 			removal_cost = -1
 
@@ -1389,7 +1419,10 @@ ideas = {
 				always = yes
 			}
 			allowed_civil_war = {
-				always = no
+				has_government = communism
+			}
+			available = {
+				has_government = communism
 			}
 			removal_cost = -1
 
@@ -1407,7 +1440,10 @@ ideas = {
 				always = yes
 			}
 			allowed_civil_war = {
-				always = no
+				has_government = communism
+			}
+			available = {
+				has_government = communism
 			}
 			removal_cost = -1
 
@@ -1423,7 +1459,10 @@ ideas = {
 				always = yes
 			}
 			allowed_civil_war = {
-				always = no
+				has_government = communism
+			}
+			available = {
+				has_government = communism
 			}
 			removal_cost = -1
 
@@ -1440,7 +1479,10 @@ ideas = {
 				always = yes
 			}
 			allowed_civil_war = {
-				always = no
+				has_government = communism
+			}
+			available = {
+				has_government = communism
 			}
 			removal_cost = -1
 			research_bonus = {
@@ -1456,7 +1498,10 @@ ideas = {
 				always = yes
 			}
 			allowed_civil_war = {
-				always = no
+				has_government = communism
+			}
+			available = {
+				has_government = communism
 			}
 			removal_cost = -1
 			research_bonus = {
@@ -1472,7 +1517,10 @@ ideas = {
 				always = yes
 			}
 			allowed_civil_war = {
-				always = no
+				has_government = communism
+			}
+			available = {
+				has_government = communism
 			}
 			removal_cost = -1
 			research_bonus = {
@@ -1491,7 +1539,7 @@ ideas = {
 				always = yes
 			}
 			allowed_civil_war = {
-				always = no
+				has_government = communism
 			}
 			available = {
 				has_government = communism
@@ -1511,7 +1559,7 @@ ideas = {
 				always = yes
 			}
 			allowed_civil_war = {
-				always = no
+				has_government = democratic
 			}
 			available = {
 				has_government = democratic
@@ -1578,6 +1626,12 @@ ideas = {
 
 			allowed = {
 				always = yes
+			}
+			allowed_civil_war = {
+				has_government = democratic
+			}
+			available = {
+				has_government = democratic
 			}
 			research_bonus = {
 				race_tech = 0.03
@@ -1712,10 +1766,10 @@ ideas = {
 			}
 			available = { has_country_leader = { ruling_only = yes name = "King Sombra" } }
 			modifier = {
-				stability_factor = 0.07
+				stability_factor = 0.05
 				army_morale_factor = 0.05
 				experience_loss_factor = -0.1
-				opinion_gain_monthly_same_ideology_factor = 0.2
+				opinion_gain_monthly_same_ideology_factor = 0.1
 			}
 		}
 	}

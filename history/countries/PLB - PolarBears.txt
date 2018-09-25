@@ -14,6 +14,7 @@ set_technology = {
 	tech_support = 1
 	tech_mountaineers = 1 
 	transport = 1
+	generic_race = 1
 }
 
 
@@ -47,7 +48,8 @@ set_politics = {
 
 
 add_ideas = {
-	outdated_industry
+	PLB_bears
+	pre_industrial_society
 	poor_science_base
 }
 

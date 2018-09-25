@@ -6,6 +6,9 @@ ideas = {
 			allowed = {
 				original_tag = EQS
 			}
+			visible = {
+				is_EQS_SOL = yes
+			}
 			available = {
 				is_EQS_SOL = yes
 			}
@@ -31,10 +34,18 @@ ideas = {
 			allowed = {
 				original_tag = EQS
 			}
+			visible = {
+				is_EQS_SOL = yes
+			}
 			available = {
 				is_EQS_SOL = yes
 				has_country_leader = { ruling_only = yes name = "Daybreaker" }
 				has_global_flag = SOL_twilight_converted
+				NOT = {
+					any_other_country = {
+						has_country_leader = { ruling_only = yes name = "Grand Inquisitor Sunrise Sparkle" }
+					}
+				}
 				NOT = { has_country_flag = SOL_twilight_unavailable }
 			}
 			traits = { lady_inquisitor }
@@ -54,7 +65,9 @@ ideas = {
 			allowed = {
 				original_tag = EQS
 			}
-
+			visible = {
+				is_EQS_SOL = yes
+			}
 			available = {
 				is_EQS_SOL = yes
 				has_completed_focus = SOL_new_officers
@@ -71,7 +84,9 @@ ideas = {
 			allowed = {
 				original_tag = EQS
 			}
-
+			visible = {
+				is_EQS_SOL = yes
+			}
 			available = {
 				is_EQS_SOL = yes
 				has_completed_focus = SOL_new_officers
@@ -92,7 +107,9 @@ ideas = {
 			allowed = {
 				original_tag = EQS
 			}
-
+			visible = {
+				is_EQS_SOL = yes
+			}
 			available = {
 				is_EQS_SOL = yes
 				has_completed_focus = SOL_new_officers
@@ -108,7 +125,9 @@ ideas = {
 			allowed = {
 				original_tag = EQS
 			}
-
+			visible = {
+				is_EQS_SOL = yes
+			}
 			available = {
 				is_EQS_SOL = yes
 				has_completed_focus = SOL_new_officers
@@ -125,7 +144,9 @@ ideas = {
 			allowed = {
 				original_tag = EQS
 			}
-
+			visible = {
+				is_EQS_SOL = yes
+			}
 			available = {
 				is_EQS_SOL = yes
 				has_completed_focus = SOL_new_officers
@@ -142,7 +163,9 @@ ideas = {
 			allowed = {
 				original_tag = EQS
 			}
-
+			visible = {
+				is_EQS_SOL = yes
+			}
 			available = {
 				is_EQS_SOL = yes
 				has_completed_focus = SOL_new_officers
@@ -332,6 +355,7 @@ ideas = {
 			}
 		}
 		SOL_harmonic_resistance_idea2 = {
+			picture = SOL_harmonic_resistance_idea
 			allowed = {
 				always = no
 			}
@@ -345,6 +369,7 @@ ideas = {
 			removal_cost = -1
 			#picture = FRA_national_mobilization_focus
 			modifier = {
+				army_morale_factor = -0.05
 				democratic_drift = 0.05
 				stability_factor = -0.15
 				war_support_factor = -0.1
@@ -356,6 +381,7 @@ ideas = {
 			}
 		}
 		SOL_harmonic_resistance_idea3 = {
+			picture = SOL_harmonic_resistance_idea
 			allowed = {
 				always = no
 			}
@@ -369,6 +395,7 @@ ideas = {
 			removal_cost = -1
 			#picture = FRA_national_mobilization_focus
 			modifier = {
+				army_morale_factor = -0.1
 				democratic_drift = 0.08
 				stability_factor = -0.2
 				war_support_factor = -0.2

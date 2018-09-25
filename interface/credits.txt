@@ -1,9 +1,7 @@
 ﻿#Equestria At War for Hearts of Iron IV
 
-#PROJECT LEAD
-Scroup
-
 #LEAD DEVELOPERS
+Scroup
 Cyrus
 Featherus
 Psody
@@ -16,6 +14,7 @@ Axidant
 Batpony Monarch
 Bipen
 BunnyShrubby
+Cazzym
 Cherrypone
 Cody MacArthur
 Computational Pragmatist
@@ -35,32 +34,42 @@ Indyclone77
 Kaltrop
 King_Wilson
 Kuche
+Lovenought
 Lumi
 Mageytash
 Miltonian
 Murp
 Myxine
 Nico von Hapsburg
-Orimmoel
+NuclearBlizzard
+Orion
 Orwell
+Pipsqueak
 Printik
+Professional Horse
 Redheart
 Rich May
+Sbadkins4 'The Captain'
 Shade
 Shalax
 Sinister
+Sparkplug
 StDeadRa
 Stemis
 ThatZealousOne
-Thomman
 TheFuego
+TheGreatPretender
+Thomman
 Thor
 Udy
+Valmoric
 Wells
 
 #TRANSLATORS
+Big Bruddah
 Cwop
 Damiyan
+Gereval
 Mr. PumzA
 Murena
 Vasily
@@ -76,6 +85,7 @@ Paradox Development Studio
 Greatexperiment
 Eight Years' War of Resistance
 Kaiserreich Team
+ThePinkPanzer
 HoI 4 Modding Coop
 All artists & creators whose work has been used
 Our wonderful community

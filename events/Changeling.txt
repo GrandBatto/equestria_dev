@@ -1,4 +1,5 @@
 ﻿add_namespace = changelings
+add_namespace = changelingattache
 
 
 country_event = {   ######### Talk about Olenian Territories ######
@@ -64,8 +65,8 @@ country_event = { ################ states ceded ############
 	option = {
 		name = changelings.4.a
 		add_political_power = 50
-		CHN = { transfer_state = 300
-			transfer_state = 292 }
+		transfer_state = 300
+		transfer_state = 292
 		ai_chance = { factor = 100 }
 	}
 }
@@ -98,26 +99,36 @@ country_event = { ################ Puppet success ############
 		name = changelings.6.a
 		add_political_power = -250
 		add_war_support = -0.1
+		hidden_effect = {
+			if = {
+				limit = { has_war_with = OLE }
+				set_country_flag = bypass_on_peaceconference_ended
+				white_peace = {
+					tag = OLE 
+					message = OLE_agree_peace_puppet
+				} 
+				clr_country_flag = bypass_on_peaceconference_ended
+			}
+		}
 		puppet = OLE
 		hidden_effect = {
 			OLE = {
 				set_country_flag = OLE_CHN_puppet
 				set_party_name = { ideology = fascism long_name = OLE_chn_collaborators_long name = OLE_chn_collaborators }
-			create_country_leader = {
-				name = "Vidkun Hjortsling"
-				picture = "Hjortsling.dds"
-				expire = "1965.1.1"
-				ideology = rexism
-				traits = {
-
+				create_country_leader = {
+					name = "Vidkun Hjortsling"
+					picture = "Hjortsling.dds"
+					expire = "1965.1.1"
+					ideology = rexism
+					traits = {
+					}
 				}
-			}
 				drop_cosmetic_tag = yes
 				set_cosmetic_tag = OLE_CHN
 			}
 		}
-		CHN = { transfer_state = 300
-			transfer_state = 292 }
+		transfer_state = 300
+		transfer_state = 292
 		ai_chance = { factor = 100 }
 	}
 }
@@ -159,9 +170,17 @@ country_event = { ################ Ole surrenderrs ############
 		add_political_power = 40
 		add_stability = 0.05
 		add_war_support = -0.05
+		hidden_effect = { 
+			set_country_flag = bypass_on_peaceconference_ended
+			white_peace = {
+				tag = OLE 
+				message = OLE_agree_peace_annex
+			} 
+			clr_country_flag = bypass_on_peaceconference_ended
+		}
 		annex_country = { target = OLE }
 		news_event = { days = 2 id = news.15 }
-		add_threat = 15
+		add_threat = 8
 		ai_chance = { factor = 100 }
 	}
 }
@@ -176,28 +195,27 @@ country_event = { ## Olenia agrees to be pupepted #
 
 	option = {
 		name = changelings.9.a
-		CHN = { transfer_state = 300
-			transfer_state = 292 }
+		transfer_state = 300
+		transfer_state = 292
 		puppet = OLE
 		hidden_effect = {
 			OLE = {
 				set_party_name = { ideology = fascism long_name = OLE_chn_collaborators_long name = OLE_chn_collaborators }
-			create_country_leader = {
-				name = "Vidkun Hjortsling"
-				picture = "Hjortsling.dds"
-				expire = "1965.1.1"
-				ideology = rexism
-				traits = {
-
+				create_country_leader = {
+					name = "Vidkun Hjortsling"
+					picture = "Hjortsling.dds"
+					expire = "1965.1.1"
+					ideology = rexism
+					traits = {
+					}
 				}
-			}
 				drop_cosmetic_tag = yes
 				set_cosmetic_tag = OLE_CHN
 			}
 		}
 		add_political_power = 40
 		add_stability = 0.03
-		add_war_support = -0.015
+		add_war_support = -0.05
 		ai_chance = { factor = 100 }
 	}
 }
@@ -208,15 +226,8 @@ country_event = {
 	desc = changelings.10.d
 	picture = GFX_event_swarm
 
-	trigger = {
-		tag = CHN
-		country_exists = VAN
-		has_global_flag = equestrian_civil_war_ended
-		has_completed_focus = demand_equestria
-	}
 	fire_only_once = yes
-	mean_time_to_happen = { days = 1 }
-
+	is_triggered_only = yes
 	option = {
 		name = changelings.10.a
 		create_wargoal = {
@@ -232,14 +243,8 @@ country_event = {
 	desc = changelings.11.d
 	picture = GFX_event_swarm
 
-	trigger = {
-		tag = CHN
-		country_exists = SCS
-		has_global_flag = equestrian_civil_war_ended
-		has_completed_focus = demand_equestria
-	}
+	is_triggered_only = yes
 	fire_only_once = yes
-	mean_time_to_happen = { days = 1 }
 
 	option = {
 		name = changelings.11.a
@@ -256,43 +261,13 @@ country_event = {
 	desc = changelings.12.d
 	picture = GFX_event_swarm
 
-	trigger = {
-		tag = CHN
-		country_exists = BAL
-		has_global_flag = equestrian_civil_war_ended
-		has_completed_focus = demand_equestria
-	}
+	is_triggered_only = yes
 	fire_only_once = yes
-	mean_time_to_happen = { days = 1 }
 
 	option = {
 		name = changelings.12.a
 		create_wargoal = {
 			target = BAL type = annex_everything
-		}
-		ai_chance = { factor = 100 }
-	}
-}
-country_event = { 
-	id = changelings.13
-	immediate = {log = "[Root.GetName]: event changelings.13"}#Auto-logging
-	title = changelings.13.t
-	desc = changelings.13.d
-	picture = GFX_event_swarm
-
-	trigger = {
-		tag = CHN
-		country_exists = NLR
-		has_completed_focus = demand_equestria
-		has_global_flag = equestrian_civil_war_ended
-	}
-	fire_only_once = yes
-	mean_time_to_happen = { days = 1 }
-
-	option = {
-		name = changelings.13.a
-		create_wargoal = {
-			target = NLR type = annex_everything
 		}
 		ai_chance = { factor = 100 }
 	}
@@ -321,28 +296,6 @@ country_event = {
 		name = changelings.14.a
 		create_wargoal = {
 			target = STG type = annex_everything
-		}
-		ai_chance = { factor = 100 }
-	}
-}
-country_event = {
-	id = changelings.15
-	immediate = {log = "[Root.GetName]: event changelings.15"}#Auto-logging
-	title = changelings.15.t
-	desc = changelings.15.d
-	picture = GFX_event_swarm
-
-	trigger = {
-		tag = CHN
-		NLR = { is_subject_of = CHN }
-	}
-	fire_only_once = yes
-	mean_time_to_happen = { days = 1 }
-
-	option = {
-		name = changelings.15.a
-		annex_country = {
-			target = NLR
 		}
 		ai_chance = { factor = 100 }
 	}
@@ -397,7 +350,7 @@ country_event = {  ## Sombra offers puppeting
 	option = { # NEVER
 		name = changelings.18.a
 		add_political_power = -20
-		CRY = {
+		FROM = {
 			country_event = { id = crysom.233 days = 1}
 		}
 		ai_chance = { factor = 70 }
@@ -405,7 +358,7 @@ country_event = {  ## Sombra offers puppeting
 	option = { # ALRIGHT
 		name = changelings.18.a
 		add_political_power = -20
-		CRY = {
+		FROM = {
 			country_event = { id = crysom.24 days = 1}
 		}
 		ai_chance = { factor = 30  }
@@ -422,25 +375,25 @@ country_event = {  ## Sombra offers alliance
 
 	option = { # NEVER
 		name = changelings.19.a
-		CRY = {
+		FROM = {
 			country_event = { id = crysom.26 days = 1}
 		}
 		ai_chance = { base = 30
 			modifier = {
 				factor = 100
-				has_war_with = CRY
+				has_war_with = FROM
 			}
 		}
 	}
 	option = { # ALRIGHT
 		name = changelings.19.b
-		CRY = {
+		FROM = {
 			country_event = { id = crysom.27 days = 1}
 		}
 		ai_chance = { base = 70
 			modifier = {
 				factor = 0
-				has_war_with = CRY
+				has_war_with = FROM
 			}
 		}
 	}
@@ -471,32 +424,20 @@ country_event = {  ## War on Equestria HERE
 			}
 		}
 		if = {
-			limit = { country_exists = NLR }
-			create_wargoal = { type = annex_everything target = NLR }
-		}
-		create_wargoal = {
-			type = annex_everything
-			target = CRY
-		}
-		hidden_effect = {
-			every_country = {
-				limit = { original_tag = CRY NOT = { tag = CRY } }
-				ROOT = { create_wargoal = { type = annex_everything target = PREV } }
+			limit = {
+				country_exists = NLR
+				NOT = { AND = {
+					has_global_flag = CHN_for_gray_pact
+					has_global_flag = NLR_for_gray_pact
+				} }
 			}
-		}
-	}
-	option = { # ALRIGHT
-		name = changelings.20.a
-		trigger = {
-			has_global_flag = CHN_for_gray_pact
-		}
-		if = {
-			limit = { country_exists = EQS }
-			create_wargoal = { type = annex_everything target = EQS }
-		}
-		if = {
-			limit = { country_exists = NLR }
 			create_wargoal = { type = annex_everything target = NLR }
+		}
+		if = {
+			limit = {
+				country_exists = VAN
+			}
+			country_event = { id = changelings.10 days = 1 }
 		}
 	}
 }
@@ -511,15 +452,15 @@ country_event = {  ## Sombra offers marriage
 
 	option = { # ALRIGHT
 		name = changelings.21.a
-		CRY = {
+		set_global_flag = Chrysalis_for_marriage
+		FROM = {
 			country_event = { id = crysom.38 days = 1}
 		}
-		set_global_flag = Chrysalis_for_marriage
 		ai_chance = { factor = 65 }
 	}
 	option = { # Nyo
 		name = changelings.21.b
-		CRY = {
+		FROM = {
 			country_event = { id = crysom.38 days = 1}
 		}
 		news_event = {
@@ -613,8 +554,10 @@ country_event = {
 
 	option = {
 		name = changelings.24.a
-		remove_unit_leader = 600
-		ai_chance = { factor = 100 }
+		if = {
+			limit = { has_unit_leader = 600 }
+			remove_unit_leader = 600
+		}
 	}
 }
 country_event = { #CLF CONTROL
@@ -749,6 +692,14 @@ country_event = { ################ Balkanize Olenia ############
 			puppet = HJO
 			puppet = VAV
 			puppet = CER
+			hidden_effect = {
+				set_country_flag = bypass_on_peaceconference_ended
+				white_peace = {
+					tag = OLE 
+					message = OLE_agree_peace_annex
+				} 
+				clr_country_flag = bypass_on_peaceconference_ended
+			}
 			annex_country = { target = OLE }
 			HJO = { country_event = civwar.111 }
 			VAV = { country_event = civwar.111 }
@@ -843,22 +794,8 @@ country_event = { ################ Furfore Chrysalis (Vanhoover Sabotour OOB) ##
 	desc = changelings.32.d
 	picture = GFX_event_swarm
 
-	trigger = {
-		tag = CHN
-		CHN = { has_government = fascism }
-		OR = {
-			country_exists = EQS
-			country_exists = NLR
-		}
-		has_completed_focus = demand_equestria
-		NOT = { country_exists = VAN }
-		OR = {
-			has_offensive_war_with = EQS
-			has_offensive_war_with = NLR
-		}
-	}
 	fire_only_once = yes
-	mean_time_to_happen = { days = 1 }
+	is_triggered_only = yes
 
 	option = {
 		name = changelings.32.a
@@ -868,24 +805,6 @@ country_event = { ################ Furfore Chrysalis (Vanhoover Sabotour OOB) ##
 			else = { load_oob = CHN_Furfore_Chrysalis }
 		}
 		ai_chance = { factor = 100 }
-	}
-}
-country_event = { # Changeling Puppet
-	id = changelings.33
-	immediate = {log = "[Root.GetName]: event changelings.33"}#Auto-logging
-	hidden = yes
-
-	trigger = {
-		tag = CHN
-		has_government = communism
-		is_subject = yes
-	}
-	fire_only_once = yes
-	mean_time_to_happen = { days = 1 }
-	option = {
-		complete_national_focus = seize_production
-		complete_national_focus = equality_for_all_CHN
-		complete_national_focus = battleforthehives_chn
 	}
 }
 country_event = { # Zecora Resistance
@@ -1135,6 +1054,193 @@ country_event = {
 		}
 	}
 }
+# CHN demilitarization
+country_event = {
+	id = changelings.39
+	immediate = {log = "[Root.GetName]: event changelings.39"}#Auto-logging
+	title = changelings.39.t
+	desc = changelings.39.d
+	picture = GFX_event_canterlot
+
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	option = {
+		name = changelings.39.a
+		hidden_effect = { 
+			CHN = {
+				set_country_flag = demilitarized 
+				add_manpower = -99999999
+			} 
+		}
+		set_autonomy = {
+			target = CHN
+			autonomy_state = autonomy_demilitarized_puppet
+		}
+		CHN = {
+			add_ideas = {
+				civilian_economy
+				disarmed_nation
+			}
+		}
+	}
+}
+
+# CHN remilitarization
+country_event = {
+	id = changelings.40
+	immediate = {log = "[Root.GetName]: event changelings.40"}#Auto-logging
+	title = changelings.40.t
+	desc = changelings.40.d
+	picture = GFX_event_canterlot
+
+	is_triggered_only = yes
+
+	option = { #decline
+		name = changelings.40.a
+		add_political_power = 25
+		FROM = { country_event = { id = changelings.41 days = 2 } }
+		ai_chance = {
+			factor = 75
+		}
+	}
+
+	option = { #agree
+		name = changelings.41.a
+		add_political_power = -150
+		if = {
+			limit = { has_war = yes }
+			add_war_support = -0.1
+		}
+		else = {
+			add_war_support = -0.25
+			add_stability = -0.25
+		}
+		if = {
+			limit = { 
+				FROM = { has_autonomy_state = autonomy_demilitarized_integrated_puppet }
+			}
+			set_autonomy = {
+				target = FROM
+				autonomy_state = autonomy_integrated_puppet
+			}
+		}
+		else_if = {
+			limit = { 
+				FROM = { has_autonomy_state = autonomy_demilitarized_colony }
+			}
+			set_autonomy = {
+				target = FROM
+				autonomy_state = autonomy_colony
+			}
+		}
+		else = {
+			set_autonomy = {
+				target = FROM
+				autonomy_state = autonomy_puppet
+			}
+		}
+		FROM = { 
+			clr_country_flag = demilitarized
+			country_event = { id = changelings.42 days = 2 } 
+		}
+		ai_chance = {
+			factor = 0
+			modifier = {
+				has_war = yes
+				OR = {
+					surrender_progress > 0.2
+					enemies_strength_ratio > 0.7
+				}
+				add = 100
+			}
+			modifier = {
+				has_war = yes
+				OR = {
+					surrender_progress > 0.3
+					enemies_strength_ratio > 1
+				}
+				add = 200
+			}
+		}
+	}
+}
+
+country_event = {
+	id = changelings.41
+	immediate = {log = "[Root.GetName]: event changelings.41"}#Auto-logging
+	title = changelings.41.t
+	desc = changelings.41.d
+	picture = GFX_event_canterlot
+
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	option = {
+		name = changelings.41.a
+	}
+}
+
+country_event = {
+	id = changelings.42
+	immediate = {log = "[Root.GetName]: event changelings.41"}#Auto-logging
+	title = changelings.42.t
+	desc = changelings.42.d
+	picture = GFX_event_canterlot
+
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	option = {
+		name = changelings.42.a
+		effect_tooltip = {
+			FROM = {
+				if = {
+					limit = { 
+						ROOT = { has_autonomy_state = autonomy_demilitarized_integrated_puppet }
+					}
+					set_autonomy = {
+						target = ROOT
+						autonomy_state = autonomy_integrated_puppet
+					}
+				}
+				else_if = {
+					limit = { 
+						ROOT = { has_autonomy_state = autonomy_demilitarized_colony }
+					}
+					set_autonomy = {
+						target = ROOT
+						autonomy_state = autonomy_colony
+					}
+				}
+				else = {
+					set_autonomy = {
+						target = ROOT
+						autonomy_state = autonomy_puppet
+					}
+				}
+			}
+		}
+	}
+}
+country_event = {
+	id = changelings.43
+	immediate = {log = "[Root.GetName]: event changelings.43"}#Auto-logging
+	hidden = yes
+	trigger = {
+		tag = CHN
+		has_country_flag = demilitarized
+		NOT = {
+			has_autonomy_state = autonomy_demilitarized_puppet
+			has_autonomy_state = autonomy_demilitarized_integrated_puppet
+			has_autonomy_state = autonomy_demilitarized_colony
+		}
+	}
+	mean_time_to_happen = { days = 1 }
+	option = {
+		clr_country_flag = demilitarized
+	}
+}
 #############################################################################
 ################ CHANGELING PUPPET EVENTS ###################################
 ################ Cosmetic tag events for EQS, CRY, STG, YAK, JAK and OLE #############
@@ -1329,7 +1435,7 @@ country_event = { # Removal of cosmetic
 					drop_cosmetic_tag = yes
 					set_cosmetic_tag = GRF_EMP
 					create_country_leader = {
-						name = "Imperator Highill"
+						name = "Imperator Highhill"
 						picture = "Highhill.tga"
 						expire = "1965.1.1"
 						ideology = nazism
@@ -1394,7 +1500,286 @@ country_event = { # Removal of cosmetic for EQS
 	option = {
 		name = changelings.910.a
 		drop_cosmetic_tag = yes
+		reapply_secondary_cosmetic_tags = yes
 		add_political_power = 110
 		clr_country_flag = is_changeling_puppet
+	}
+}
+
+########################################
+
+country_event = {   ######### Informing GRI of Recall ######
+	id = changelingattache.1
+	immediate = {log = "[Root.GetName]: event changelingattache.1"}#Auto-logging
+	title = changelingattache.1.t
+	desc = changelingattache.1.d
+	picture = GFX_event_swarm
+
+	is_triggered_only = yes
+
+	option = { ###Okay then I guess
+		name = changelingattache.1.a
+		event_target:CHN_Thranx = { set_nationality = CHN }
+		event_target:CHN_Synovial = { set_nationality = CHN }
+		ai_chance = { factor = 25 }
+	}
+	option = { ###Dont let them go without a Farewell
+		name = changelingattache.1.b
+		ai_chance = { factor = 75 }
+		reverse_add_opinion_modifier = {
+    	target = CHN
+   		modifier = CHN_GRI_Party
+		}
+			if = {
+					limit = { CHN = { has_war = yes } }
+					country_event = changelingattache.3
+				}
+			else = {
+					country_event = changelingattache.2
+				}
+	}
+}
+
+country_event = {   ######### Farewell Party ######
+	id = changelingattache.2
+	immediate = {log = "[Root.GetName]: event changelingattache.2"}#Auto-logging
+	title = changelingattache.2.t
+	desc = changelingattache.2.d
+	picture = GFX_event_swarm
+
+	is_triggered_only = yes
+
+	option = { ####A good Farewell
+		name = changelingattache.2.a
+		hidden_effect = { country_event = changelingattache.4 }
+		event_target:CHN_Synovial = { set_nationality = CHN }
+		ai_chance = { factor = 50 }
+	}
+	option = { ###Send them back with some Supplies
+		name = changelingattache.2.b
+		hidden_effect = { country_event = changelingattache.4 }
+		event_target:CHN_Synovial = { set_nationality = CHN }
+		ai_chance = { factor = 50 }
+	}
+}
+
+country_event = {   ######### Farewell Party CHN At War ######
+	id = changelingattache.3
+	immediate = {log = "[Root.GetName]: event changelingattache.2"}#Auto-logging
+	title = changelingattache.3.t
+	desc = changelingattache.3.d
+	picture = GFX_event_swarm
+
+	is_triggered_only = yes
+
+	option = { ####A good Farewell
+		name = changelingattache.3.a
+		hidden_effect = { country_event = changelingattache.4 }
+		event_target:CHN_Synovial = { set_nationality = CHN }
+		ai_chance = { factor = 0 }
+	}
+	option = { ###Send them back with some Supplies
+		name = changelingattache.3.b
+		hidden_effect = { country_event = changelingattache.4 }
+		event_target:CHN_Synovial = { set_nationality = CHN }
+		ai_chance = { factor = 50 }
+	}
+	option = { ###Send them back with Volunteers
+		name = changelingattache.3.c
+		CHN = { country_event = changelingattache.12 }
+		hidden_effect = { country_event = changelingattache.4 }
+		event_target:CHN_Synovial = { set_nationality = CHN }
+		ai_chance = { factor = 50 }
+	}
+}
+
+country_event = {   ######### General Thranx begs to stay in GRI ######
+	id = changelingattache.4
+	immediate = {log = "[Root.GetName]: event changelingattache.4"}#Auto-logging
+	title = changelingattache.4.t
+	desc = changelingattache.4.d
+	picture = GFX_event_swarm
+
+	is_triggered_only = yes
+
+	option = { #Im sure he can stay
+		name = changelingattache.4.a
+		hidden_effect = { CHN = { country_event = { id = changelingattache.5 days = 10 } } }
+	}
+	option = { #Send him back to his Homeland
+		name = changelingattache.4.b
+		event_target:CHN_Thranx = { set_nationality = CHN }
+	}
+}
+
+country_event = {   ######### General Thranx for CHN ######
+	id = changelingattache.5
+	immediate = {log = "[Root.GetName]: event changelingattache.5"}#Auto-logging
+	title = changelingattache.5.t
+	desc = changelingattache.5.d
+	picture = GFX_event_swarm
+
+	is_triggered_only = yes
+
+	option = { #Demand he be returned in chains to Vesalipolis!
+		name = changelingattache.5.a
+		GRI = { country_event = { id = changelingattache.6 days = 10 } }
+	}
+}
+
+country_event = {   ######### Angry Bugs demand Thranx Back ######
+	id = changelingattache.6
+	immediate = {log = "[Root.GetName]: event changelingattache.6"}#Auto-logging
+	title = changelingattache.6.t
+	desc = changelingattache.6.d
+	picture = GFX_event_swarm
+
+	is_triggered_only = yes
+
+	option = { #Keep him
+		name = changelingattache.6.a
+		CHN = { country_event = changelingattache.8 }
+	}
+	option = { #On second thought we should definitely send him back
+		name = changelingattache.6.b
+		ROOT = { remove_unit_leader = 622 }
+		CHN = { 
+		country_event = changelingattache.7 		
+		remove_opinion_modifier = {
+    	target = GRI
+    	modifier = CHN_GRI_Hiding_The_Coward
+			}
+		}
+	}
+}
+
+country_event = {   ######### Thranx executed by firing Squad in Vesalipolis ######
+	id = changelingattache.7
+	immediate = {log = "[Root.GetName]: event changelingattache.7"}#Auto-logging
+	title = changelingattache.7.t
+	desc = changelingattache.7.d
+	picture = GFX_event_swarm
+
+	is_triggered_only = yes
+
+	option = { #Thus sates the Queen
+		name = changelingattache.7.a
+		add_political_power = 25
+	}
+}
+
+country_event = {   ######### THEY REFUSED?!?!?! #########
+	id = changelingattache.8
+	immediate = {log = "[Root.GetName]: event changelingattache.8"}#Auto-logging
+	title = changelingattache.8.t
+	desc = changelingattache.8.d
+	picture = GFX_event_swarm
+
+	is_triggered_only = yes
+
+	option = { #Angry Letter to GRI
+		name = changelingattache.8.a
+		add_opinion_modifier = {
+  	  	target = GRI
+ 	   	modifier = CHN_GRI_Hiding_The_Coward
+		}
+		GRI = { country_event = changelingattache.9 }
+	}
+}
+
+country_event = {   ######### Chrysalis Swears Revenge #########
+	id = changelingattache.9
+	immediate = {log = "[Root.GetName]: event changelingattache.9"}#Auto-logging
+	title = changelingattache.9.t
+	desc = changelingattache.9.d
+	picture = GFX_event_swarm
+
+	is_triggered_only = yes
+
+	option = { #Oh dear
+		name = changelingattache.9.a
+		reverse_add_opinion_modifier = {
+    	target = CHN
+   		modifier = CHN_GRI_Queen_Swears_Vengance
+		}
+		hidden_effect = {
+    		CHN = { country_event = { id = changelingattache.11 days = 200 } }
+    		ROOT = { country_event = { id = changelingattache.10 days = 200 } }
+		}
+	}
+}
+
+country_event = {   ######### Poison Thranx for GRI #########
+	id = changelingattache.10
+	immediate = {log = "[Root.GetName]: event changelingattache.10"}#Auto-logging
+	title = changelingattache.10.t
+	desc = changelingattache.10.d
+	picture = GFX_event_swarm
+
+	is_triggered_only = yes
+
+	option = { #Ouch
+		name = changelingattache.10.a
+		ROOT = { remove_unit_leader = 622 }
+		add_political_power = -1
+	}
+}
+
+country_event = {   ######### Poison Thranx for CHN #########
+	id = changelingattache.11
+	immediate = {log = "[Root.GetName]: event changelingattache.11"}#Auto-logging
+	title = changelingattache.11.t
+	desc = changelingattache.11.d
+	picture = GFX_event_swarm
+
+	is_triggered_only = yes
+
+	option = { #I think I will celebrate with... Water...
+		name = changelingattache.11.a
+	}
+}
+
+country_event = {   ######### Imperial Volunteers for CHN #########
+	id = changelingattache.12
+	immediate = {log = "[Root.GetName]: event changelingattache.12"}#Auto-logging
+	title = changelingattache.12.t
+	desc = changelingattache.12.d
+	picture = GFX_event_griffon_mountain
+
+	is_triggered_only = yes
+
+	option = { #Good Birds
+		name = changelingattache.12.a
+		load_oob = CHN_GRI_Volunteers
+	}
+}
+
+country_event = {   ######### Chrysalis forcibly recalls Attache during Major War #########
+	id = changelingattache.13
+	immediate = {log = "[Root.GetName]: event changelingattache.13"}#Auto-logging
+	title = changelingattache.13.t
+	desc = changelingattache.13.d
+	picture = GFX_event_griffon_back
+	fire_only_once = yes
+	trigger = {
+		original_tag = CHN
+		has_idea = CHN_GRI_Attache_For_CHN
+		NOT = { is_in_faction_with = GRI }
+				any_country = {
+					is_major = yes
+					OR = {
+						has_wargoal_against = ROOT
+						is_justifying_wargoal_against = ROOT
+						focus_progress = { focus = thoraxian_betrayal progress > 0 }
+						focus_progress = { focus = CHN_invasion_of_griffonia progress > 0 }
+					}
+			}
+	}
+
+	mean_time_to_happen = { days = 30 }
+
+	option = { #A genius idea my queen...
+		name = changelingattache.13.a
+		activate_decision = CHN_Cancel_Attache
 	}
 }

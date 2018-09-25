@@ -105,8 +105,12 @@ fascist_peace = {
 	puppet = {
 		factor = 100 #150
 		modifier = {
-			factor = 0
+			factor = 0.1
 			has_annex_war_goal = FROM
+		}
+		modifier = {
+			factor = 0
+			tag = GRW
 		}
 		modifier = {
 			factor = 0
@@ -323,8 +327,7 @@ fascist_peace = {
 			factor = 0
 			OR = {
 				has_annex_war_goal = FROM
-				any_country = {
-					is_in_faction_with = ROOT
+				any_allied_country = {
 					has_annex_war_goal = FROM
 				}
 			}
@@ -407,8 +410,7 @@ fascist_peace = {
 					}
 				}
 			}
-			any_country = {
-				is_in_faction_with = ROOT
+			any_allied_country = {
 				#is_subject = no
 				FROM = {
 					OR = {

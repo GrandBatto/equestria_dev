@@ -76,13 +76,17 @@ communist_peace = {
 	puppet = {
 		factor = 800
 		modifier = {
-			factor = 0
+			factor = 0.1
 			has_annex_war_goal = FROM
 		}
 		modifier = {
 			factor = 0
 			tag = AET
 			FROM = { tag = HEL }
+		}
+		modifier = {
+			factor = 0
+			tag = BRF
 		}
 		modifier = {
 			factor = 0
@@ -212,6 +216,21 @@ communist_peace = {
 	take_states = {
 		factor = 200
 		modifier = {
+			factor = 0
+
+			tag = STG
+			has_war_together_with = EQS
+			FROM = {
+				owner = {
+					tag = CHN
+				}
+				NOT = {
+					is_claimed_by = ROOT
+					is_core_of = ROOT
+				}
+			}
+		}
+		modifier = {
 			factor = 20
 
 			FROM = {
@@ -258,8 +277,7 @@ communist_peace = {
 					}
 				}
 			}
-			any_country = {
-				is_in_faction_with = ROOT
+			any_allied_country = {
 				is_subject = no
 				FROM = {
 					OR = {
