@@ -1,0 +1,322 @@
+shared_focus = {
+	id = PNG_trouble_in_the_capital
+	icon = GFX_goal_bankruptcy
+	cost = 1.00
+	ai_will_do = { factor = 100 }
+	x = 10
+	y = 0
+	completion_reward = {
+	}
+}
+
+shared_focus = {
+	id = PNG_deal_with_crime
+	icon = GFX_goal_bankruptcy
+	prerequisite = { focus = PNG_trouble_in_the_capital }
+	mutually_exclusive = { focus = PNG_do_nothing }
+	relative_position_id = PNG_trouble_in_the_capital
+	cost = 1.00
+	ai_will_do = { factor = 100 }
+	x = -4
+	y = 1
+	completion_reward = {
+	}
+}
+
+shared_focus = {
+	id = PNG_increased_police_presence
+	icon = GFX_goal_bankruptcy
+	prerequisite = { focus = PNG_deal_with_crime }
+	relative_position_id = PNG_trouble_in_the_capital
+	cost = 1.00
+	ai_will_do = { factor = 100 }
+	x = -5
+	y = 2
+	completion_reward = {
+	}
+}
+
+shared_focus = {
+	id = PNG_arrest_crime_bosses
+	icon = GFX_goal_bankruptcy
+	prerequisite = { focus = PNG_deal_with_crime }
+	relative_position_id = PNG_trouble_in_the_capital
+	cost = 1.00
+	ai_will_do = { factor = 100 }
+	x = -3
+	y = 2
+	completion_reward = {
+	}
+}
+
+shared_focus = {
+	id = PNG_order_restored
+	icon = GFX_goal_bankruptcy
+	prerequisite = { focus = PNG_arrest_crime_bosses focus = PNG_increased_police_presence }
+	relative_position_id = PNG_trouble_in_the_capital
+	cost = 1.00
+	ai_will_do = { factor = 100 }
+	x = -4
+	y = 3
+	completion_reward = {
+	}
+}
+
+shared_focus = {
+	id = PNG_political_reforms
+	icon = GFX_goal_bankruptcy
+	prerequisite = { focus = PNG_order_restored }
+	relative_position_id = PNG_trouble_in_the_capital
+	cost = 1.00
+	ai_will_do = { factor = 100 }
+	x = -5
+	y = 4
+	completion_reward = {
+	}
+}
+
+shared_focus = {
+	id = PNG_ban_other_parties
+	icon = GFX_goal_bankruptcy
+	prerequisite = { focus = PNG_political_reforms }
+	relative_position_id = PNG_trouble_in_the_capital
+	cost = 1.00
+	ai_will_do = { factor = 100 }
+	x = -5
+	y = 5
+	completion_reward = {
+	}
+}
+
+shared_focus = {
+	id = PNG_recruitment_drive
+	icon = GFX_goal_bankruptcy
+	prerequisite = { focus = PNG_ban_other_parties }
+	relative_position_id = PNG_trouble_in_the_capital
+	cost = 1.00
+	ai_will_do = { factor = 100 }
+	x = -5
+	y = 6
+	completion_reward = {
+	}
+}
+
+shared_focus = {
+	id = PNG_talk_with_the_bears
+	icon = GFX_goal_bankruptcy
+	prerequisite = { focus = PNG_political_reforms }
+	relative_position_id = PNG_trouble_in_the_capital
+	cost = 1.00
+	ai_will_do = { factor = 100 }
+	x = -7
+	y = 5
+	completion_reward = {
+	}
+}
+
+shared_focus = {
+	id = PNG_talk_with_the_griffons
+	icon = GFX_goal_bankruptcy
+	prerequisite = { focus = PNG_talk_with_the_bears }
+	relative_position_id = PNG_trouble_in_the_capital
+	cost = 1.00
+	ai_will_do = { factor = 100 }
+	x = -7
+	y = 6
+	completion_reward = {
+	}
+}
+
+shared_focus = {
+	id = PNG_old_claims_asserted
+	icon = GFX_goal_bankruptcy
+	prerequisite = { focus = PNG_talk_with_the_griffons }
+	prerequisite = { focus = PNG_recruitment_drive }
+	relative_position_id = PNG_trouble_in_the_capital
+	cost = 1.00
+	ai_will_do = { factor = 100 }
+	x = -6
+	y = 7
+	completion_reward = {
+	}
+}
+
+shared_focus = {
+	id = PNG_industrial_concerns
+	icon = GFX_goal_bankruptcy
+	prerequisite = { focus = PNG_order_restored }
+	relative_position_id = PNG_trouble_in_the_capital
+	cost = 1.00
+	ai_will_do = { factor = 100 }
+	x = -3
+	y = 4
+	completion_reward = {
+	}
+}
+
+shared_focus = {
+	id = PNG_dachaigh_magic_ice
+	icon = GFX_goal_bankruptcy
+	prerequisite = { focus = PNG_industrial_concerns }
+	relative_position_id = PNG_trouble_in_the_capital
+	cost = 1.00
+	ai_will_do = { factor = 100 }
+	x = -3
+	y = 5
+	completion_reward = {
+	}
+}
+
+shared_focus = {
+	id = PNG_expand_lolo_dockyards
+	icon = GFX_goal_bankruptcy
+	prerequisite = { focus = PNG_dachaigh_magic_ice }
+	relative_position_id = PNG_trouble_in_the_capital
+	cost = 1.00
+	ai_will_do = { factor = 100 }
+	x = -3
+	y = 6
+	completion_reward = {
+	}
+}
+
+shared_focus = {
+	id = PNG_equestrian_investors
+	icon = GFX_goal_bankruptcy
+	prerequisite = { focus = PNG_industrial_concerns }
+	relative_position_id = PNG_trouble_in_the_capital
+	cost = 1.00
+	ai_will_do = { factor = 100 }
+	x = -1
+	y = 5
+	completion_reward = {
+	}
+}
+
+shared_focus = {
+	id = PNG_national_bank_of_pingland
+	icon = GFX_goal_bankruptcy
+	prerequisite = { focus = PNG_equestrian_investors }
+	relative_position_id = PNG_trouble_in_the_capital
+	cost = 1.00
+	ai_will_do = { factor = 100 }
+	x = -1
+	y = 6
+	completion_reward = {
+	}
+}
+
+shared_focus = {
+	id = PNG_global_ice_trade
+	icon = GFX_goal_bankruptcy
+	prerequisite = { focus = PNG_national_bank_of_pingland }
+	prerequisite = { focus = PNG_expand_lolo_dockyards }
+	relative_position_id = PNG_trouble_in_the_capital
+	cost = 1.00
+	ai_will_do = { factor = 100 }
+	x = -2
+	y = 7
+	completion_reward = {
+	}
+}
+
+shared_focus = {
+	id = PNG_northern_empire_restored
+	icon = GFX_goal_bankruptcy
+	prerequisite = { focus = PNG_global_ice_trade }
+	prerequisite = { focus = PNG_old_claims_asserted }
+	relative_position_id = PNG_trouble_in_the_capital
+	cost = 1.00
+	ai_will_do = { factor = 100 }
+	x = -4
+	y = 8
+	completion_reward = {
+	}
+}
+
+shared_focus = {
+	id = PNG_do_nothing
+	icon = GFX_goal_bankruptcy
+	prerequisite = { focus = PNG_trouble_in_the_capital }
+	mutually_exclusive = { focus = PNG_do_nothing }
+	relative_position_id = PNG_trouble_in_the_capital
+	cost = 1.00
+	ai_will_do = { factor = 100 }
+	x = 4
+	y = 1
+	completion_reward = {
+	}
+}
+
+shared_focus = {
+	id = PNG_chaos_in_the_streets
+	icon = GFX_goal_bankruptcy
+	prerequisite = { focus = PNG_arrest_crime_bosses focus = PNG_increased_police_presence }
+	prerequisite = { focus = PNG_do_nothing }
+	relative_position_id = PNG_trouble_in_the_capital
+	cost = 1.00
+	ai_will_do = { factor = 100 }
+	x = 4
+	y = 3
+	completion_reward = {
+	}
+}
+
+shared_focus = {
+	id = PNG_military_coup
+	icon = GFX_goal_bankruptcy
+	prerequisite = { focus = PNG_chaos_in_the_streets }
+	mutually_exclusive = { focus = PNG_big_don_roldolfo }
+	mutually_exclusive = { focus = PNG_communist_takeover }
+	relative_position_id = PNG_trouble_in_the_capital
+	cost = 1.00
+	ai_will_do = { factor = 100 }
+	x = 2
+	y = 4
+	completion_reward = {
+	}
+}
+
+shared_focus = {
+	id = PNG_communist_takeover
+	icon = GFX_goal_bankruptcy
+	prerequisite = { focus = PNG_chaos_in_the_streets }
+	mutually_exclusive = { focus = PNG_military_coup }
+	mutually_exclusive = { focus = PNG_big_don_roldolfo }
+	relative_position_id = PNG_trouble_in_the_capital
+	cost = 1.00
+	ai_will_do = { factor = 100 }
+	x = 4
+	y = 4
+	completion_reward = {
+	}
+}
+
+shared_focus = {
+	id = PNG_big_don_roldolfo
+	icon = GFX_goal_shadow_government
+	prerequisite = { focus = PNG_chaos_in_the_streets }
+	mutually_exclusive = { focus = PNG_military_coup }
+	mutually_exclusive = { focus = PNG_communist_takeover }
+	relative_position_id = PNG_trouble_in_the_capital
+	cost = 1.00
+	ai_will_do = { factor = 100 }
+	x = 6
+	y = 4
+	completion_reward = {
+	}
+}
+
+
+shared_focus = {
+	id = PNG_order_restored2
+	icon = GFX_goal_bankruptcy
+	prerequisite = { focus = PNG_big_don_roldolfo focus = PNG_military_coup  focus = PNG_communist_takeover  }
+	relative_position_id = PNG_trouble_in_the_capital
+	cost = 1.00
+	ai_will_do = { factor = 100 }
+	x = 4
+	y = 5
+	completion_reward = {
+	}
+}
